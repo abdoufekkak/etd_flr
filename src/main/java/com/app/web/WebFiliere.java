@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.DTO.DtoRequestFiliere;
-import com.example.demo.DTO.DtoResponseFiliere;
-import com.example.demo.entities.Filiere;
-import com.example.demo.services.ServiceFiliere;
+import com.app.DTO.DtoRequestFiliere;
+import com.app.DTO.DtoResponseFiliere;
+import com.app.entities.Filiere;
+import com.app.services.ServiceFiliere;
+
+
 
 
 @RestController
