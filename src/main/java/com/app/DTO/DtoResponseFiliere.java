@@ -9,16 +9,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class DtoRequestFiliere {
-	
+public class DtoResponseFiliere {
+	private Integer Id;
 	private String nom;
-
 	
-//	public DtoRequestFiliere() {
-//		super();
-//		// TODO Auto-generated constructor stub
-//	}
-
-
+	
+	
 }

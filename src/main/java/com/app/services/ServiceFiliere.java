@@ -2,17 +2,16 @@ package com.app.services;
 
 import java.util.List;
 
-import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.DTO.DtoRequestFiliere;
-import com.example.demo.DTO.DtoResponseFiliere;
-import com.example.demo.Exception.Exception404;
-import com.example.demo.Exception.Exception500;
-import com.example.demo.Mappers.MapperFiliere;
-import com.example.demo.entities.Filiere;
-import com.example.demo.reposotiries.RepoFiliere;
+import com.app.DTO.DtoRequestFiliere;
+import com.app.DTO.DtoResponseFiliere;
+import com.app.Exception.Exception404;
+import com.app.Exception.Exception500;
+import com.app.Mappers.MapperFiliere;
+import com.app.entities.Filiere;
+import com.app.reposotiries.RepoFiliere;
 
 
 
@@ -20,7 +19,9 @@ import com.example.demo.reposotiries.RepoFiliere;
 public class ServiceFiliere {
 	@Autowired
 	private RepoFiliere repoFiliere;
-	private MapperFiliere mapperFiliere = Mappers.getMapper(MapperFiliere.class);
+	@Autowired
+	private MapperFiliere mapperFiliere ;
+
 	public List <Filiere> getFiliere(){
 		return repoFiliere.findAll();
 	}
@@ -28,9 +29,9 @@ public class ServiceFiliere {
 	public DtoResponseFiliere AddFiliere(DtoRequestFiliere dtoRequestFiliere){
 		Filiere filiere2=repoFiliere.findByName(dtoRequestFiliere.getNom());
 		if(filiere2!=null) {throw new Exception500("filiere already exist"); }
-		Filiere filiere= mapperFiliere.DtoRequestToFiliere(dtoRequestFiliere);
+		Filiere filiere= mapperFiliere.requestFiliereToFiliere(dtoRequestFiliere);
 		filiere=repoFiliere.save(filiere);
-		 return mapperFiliere.FiliereDtoToResponse(filiere);
+		 return mapperFiliere.filiereToResponseDto(filiere);
 	}
 	
 	public void deleteFiliere(Integer Id) {
@@ -42,8 +43,8 @@ public class ServiceFiliere {
 	public DtoResponseFiliere ModifyFiliere(DtoRequestFiliere dtoRequestFiliere,Integer Id){
 		Filiere filiere2=repoFiliere.findById(Id).orElse(null);
 		if(filiere2==null) { throw new Exception404("filiere not found"); }
-		Filiere filiere= mapperFiliere.DtoRequestToFiliere(dtoRequestFiliere);
+		Filiere filiere= mapperFiliere.requestFiliereToFiliere(dtoRequestFiliere);
 	
-		return mapperFiliere.FiliereDtoToResponse(repoFiliere.save(filiere));
+		return mapperFiliere.filiereToResponseDto(repoFiliere.save(filiere));
 	}
 }
