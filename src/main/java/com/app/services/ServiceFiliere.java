@@ -27,7 +27,7 @@ public class ServiceFiliere {
 	}
 	
 	public DtoResponseFiliere AddFiliere(DtoRequestFiliere dtoRequestFiliere){
-		Filiere filiere2=repoFiliere.findByName(dtoRequestFiliere.getNom());
+		Filiere filiere2=repoFiliere.findByNom(dtoRequestFiliere.getNom());
 		if(filiere2!=null) {throw new Exception500("filiere already exist"); }
 		Filiere filiere= mapperFiliere.requestFiliereToFiliere(dtoRequestFiliere);
 		filiere=repoFiliere.save(filiere);

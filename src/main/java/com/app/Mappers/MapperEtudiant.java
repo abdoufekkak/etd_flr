@@ -1,9 +1,12 @@
 package com.app.Mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.app.DTO.DtoRequestEtudiant;
 import com.app.DTO.DtoRespenseEtudiant;
 import com.app.entities.Etudiant;
 
+@Component
 public class MapperEtudiant {
 	public Etudiant requestEtudiantToEtudiant(DtoRequestEtudiant dtoRequestEtudiant) {
 		Etudiant etudiant = new Etudiant();

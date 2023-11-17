@@ -3,6 +3,7 @@ package com.app.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.Mappers.MapperEtudiant;
 import com.app.entities.Etudiant;
@@ -11,6 +12,7 @@ import com.app.DTO.DtoRespenseEtudiant;
 import com.app.Exception.Exception404;
 import com.app.reposotiries.RepoEtudiant;
 
+@Service
 public class EtudiantService {
 
 	@Autowired
