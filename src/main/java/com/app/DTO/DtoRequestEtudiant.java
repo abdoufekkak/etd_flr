@@ -9,4 +9,7 @@ public class DtoRequestEtudiant {
     private String nom;
     private String prenom;
     private Integer age;
+    private Integer Note;
+	private Boolean hasBacLibre;
+	
 }

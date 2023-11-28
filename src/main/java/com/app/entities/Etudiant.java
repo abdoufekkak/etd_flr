@@ -22,9 +22,15 @@ public class Etudiant {
 	public String nom;
     @Column(nullable = false)
 	public String prenom;
-	@Column()
+	@Column
 	public Integer age;
+	@Column
+	private Integer Note;
+	@Column
+	private Boolean hasBacLibre;
+	
 	@ManyToOne
     @JoinColumn(name = "filiere_id", insertable = false, updatable = false)
     private Filiere filiere;
+	
 }
